@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration debug="true">
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<springProperty scope="context" name="appName" source="spring.application.name" />
+	<springProperty scope="context" name="appPort" source="server.port" />
+	<substitutionProperty name="log.base" value="/Data/logs"/>	
+     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+             <level>DEBUG</level>
+         </filter>
+        <encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [${appName:-},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] [%thread] %-5level %logger{36} - %msg%n</pattern>
+			<charset>utf8</charset>
+		</encoder>
+     </appender>
+	
+     <logger name="play" level="INFO" />
+     <logger name="org.dozer" level="INFO"/>
+     <logger name="springfox.documentation" level="INFO"/>
+     <logger name="ch.qos.logback" level="ERROR"></logger>
+     <logger name="org.thymeleaf" level="ERROR"></logger>
+     <logger name="org.springframework" level="INFO"></logger>
+     <logger name="org.apache.commons.beanutils.converters" level="INFO"></logger>
+     <!-- Off these ones as they are annoying, and anyway we manage configuration ourselves -->
+   
+
+     <root level="info">
+         <appender-ref ref="console"/>
+       
+     </root>
+ </configuration>

@@ -1,0 +1,10 @@
+target
+**/.target
+.project
+**/.project
+.classpath
+**/.classpath
+**/.settings
+../target/*
+.mvn
+mvnw*
