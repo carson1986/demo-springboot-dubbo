@@ -12,7 +12,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
 
 import com.alibaba.dubbo.spring.boot.annotation.EnableDubboConfiguration;
 
-@SpringBootApplication(scanBasePackages = { "demo.springboot.dubbo.consumer"})
+@SpringBootApplication(scanBasePackages = { "demo.springboot.dubbo"})
 @EnableDubboConfiguration
 public class DubboConsumerApplication {
 	
